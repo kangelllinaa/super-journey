@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Микрокомпьютеры: история, применение и перспективы</title>
+    <meta name="description" content="Образовательный ресурс о микрокомпьютерах: от Raspberry Pi до Arduino. История развития, применение в современном мире и будущие перспективы.">
+    <meta name="keywords" content="микрокомпьютеры, Raspberry Pi, Arduino, одноплатные компьютеры, образовательные технологии">
+    <meta name="author" content="Образовательный IT-портал">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: var(--secondary-color);
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .nav {
+            background-color: var(--dark-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin: 0 1rem;
+        }
+        
+        .nav-link {
+            color: white;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--secondary-color);
+            text-decoration: none;
+        }
+        
+        .content {
+            padding: 2rem 0;
+            background-color: white;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: block;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        
+        .footer-link {
+            color: white;
+            margin: 0 1rem;
+        }
+        
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+        }
+        
+        /* Accessibility improvements */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        
+        .skip-link:focus {
+            position: static;
+            width: auto;
+            height: auto;
+            padding: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #e0e0e0;
+            }
+            
+            .content, .card, .timeline-content {
+                background-color: #1e1e1e;
+                color: #e0e0e0;
+            }
+            
+            h2 {
+                color: var(--secondary-color);
+            }
+            
+            a {
+                color: #4fc3f7;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному содержимому</a>
+    
+    <header>
+        <div class="container">
+            <h1>Микрокомпьютеры: маленькие устройства с большими возможностями</h1>
+            <p>Образовательный ресурс об одноплатных компьютерах и их применении в современном мире</p>
+        </div>
+    </header>
+    
+    <nav class="nav" aria-label="Основная навигация">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="#definition" class="nav-link">Что такое микрокомпьютер?</a></li>
+            <li class="nav-item"><a href="#history" class="nav-link">История</a></li>
+            <li class="nav-item"><a href="#types" class="nav-link">Типы</a></li>
+            <li class="nav-item"><a href="#applications" class="nav-link">Применение</a></li>
+            <li class="nav-item"><a href="#future" class="nav-link">Перспективы</a></li>
+        </ul>
+    </nav>
+    
+    <main id="main-content" class="content">
+        <div class="container">
+            <section id="definition" class="card">
+                <h2>Что такое микрокомпьютер?</h2>
+                <p>Микрокомпьютер (одноплатный компьютер) — это полностью функциональный компьютер, размещенный на одной печатной плате. В отличие от традиционных ПК, микрокомпьютеры отличаются компактными размерами, низким энергопотреблением и доступной ценой, что делает их идеальными для образовательных целей, встраиваемых систем и интернета вещей (IoT).</p>
+                
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Raspberry_Pi_4_Model_B_-_Side.jpg/800px-Raspberry_Pi_4_Model_B_-_Side.jpg" alt="Raspberry Pi 4 Model B" class="card-img" loading="lazy">
+                <p class="text-center"><small>Raspberry Pi 4 Model B — один из самых популярных микрокомпьютеров</small></p>
+                
+                <p>Основные характеристики микрокомпьютеров:</p>
+                <ul>
+                    <li>Компактные размеры (часто не больше кредитной карты)</li>
+                    <li>Низкое энергопотребление (обычно менее 10 Вт)</li>
+                    <li>Доступная цена (от $5 до $100)</li>
+                    <li>Открытая архитектура и документация</li>
+                    <li>Широкие возможности подключения периферии</li>
+                    <li>Поддержка различных операционных систем</li>
+                </ul>
+            </section>
+            
+            <section id="history" class="card">
+                <h2>История развития микрокомпьютеров</h2>
+                <p>Хотя концепция одноплатных компьютеров существует с 1970-х годов, настоящий расцвет микрокомпьютеров начался в 2010-х годах с появлением Raspberry Pi.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>1976: Intel SDK-85</h3>
+                            <p>Один из первых одноплатных компьютеров на базе процессора Intel 8085 с 256 байтами RAM и 1 КБ ROM.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>2005: Arduino</h3>
+                            <p>Появление платформы Arduino для создания прототипов электронных устройств с открытой архитектурой.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>2012: Raspberry Pi</h3>
+                            <p>Выпуск первой модели Raspberry Pi за $25, предназначенной для обучения программированию.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>2015: Raspberry Pi 2</h3>
+                            <p>Значительное увеличение производительности с 4-ядерным процессором и 1 ГБ RAM.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>2019: Raspberry Pi 4</h3>
+                            <p>Поддержка 4K видео, USB 3.0 и до 8 ГБ RAM, сравнимая по мощности с бюджетными ПК.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>2021: Raspberry Pi Pico</h3>
+                            <p>Первая плата от Raspberry Pi Foundation на собственном микроконтроллере RP2040.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="types" class="card">
+                <h2>Основные типы микрокомпьютеров</h2>
+                <p>Современный рынок предлагает множество вариантов микрокомпьютеров для различных задач:</p>
+                
+                <div class="grid">
+                    <div class="card">
+                        <h3>Raspberry Pi</h3>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Raspberry_Pi_3_B%2B_%2835565093274%29.jpg/800px-Raspberry_Pi_3_B%2B_%2835565093274%29.jpg" alt="Raspberry Pi 3 B+" class="card-img" loading="lazy">
+                        <p>Самые популярные образовательные микрокомпьютеры с полной поддержкой Linux. Последняя модель — Raspberry Pi 4 с процессором до 1.5 ГГц и 8 ГБ RAM.</p>
+                        <p><strong>Цена:</strong> $35-$75</p>
+                        <p><strong>Лучшее для:</strong> Образования, медиацентров, домашних серверов</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Arduino</h3>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/800px-Arduino_Logo.svg.png" alt="Arduino Logo" class="card-img" loading="lazy" style="background: white; padding: 1rem;">
+                        <p>Платформа для создания прототипов электронных устройств с простым языком программирования. Не является полноценным компьютером, но широко используется в образовании.</p>
+                        <p><strong>Цена:</strong> $20-$50</p>
+                        <p><strong>Лучшее для:</strong> Электронных проектов, робототехники, IoT</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Orange Pi</h3>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Orange_Pi_One.jpg/800px-Orange_Pi_One.jpg" alt="Orange Pi One" class="card-img" loading="lazy">
+                        <p>Альтернатива Raspberry Pi с более мощным железом за ту же цену. Поддерживает Android и Linux.</p>
+                        <p><strong>Цена:</strong> $30-$100</p>
+                        <p><strong>Лучшее для:</strong> Бюджетных проектов, требующих большей мощности</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>NVIDIA Jetson</h3>
+                        <img src="https://developer.nvidia.com/sites/default/files/akamai/embedded/images/jetsonNano/JetsonNano-DevKit_Front-Top_Right_trimmed.jpg" alt="NVIDIA Jetson Nano" class="card-img" loading="lazy">
+                        <p>Мощные платы для ИИ и машинного обучения с GPU NVIDIA. Идеальны для компьютерного зрения.</p>
+                        <p><strong>Цена:</strong> $99-$599</p>
+                        <p><strong>Лучшее для:</strong> Искусственного интеллекта, компьютерного зрения</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="applications" class="card">
+                <h2>Применение микрокомпьютеров</h2>
+                <p>Благодаря своей универсальности и доступности микрокомпьютеры нашли применение в самых разных областях:</p>
+                
+                <h3>Образование</h3>
+                <p>Микрокомпьютеры революционизировали обучение программированию и электронике. Raspberry Pi изначально создавался как образовательный инструмент для школ.</p>
+                
+                <h3>Интернет вещей (IoT)</h3>
+                <p>Компактность и низкое энергопотребление делают микрокомпьютеры идеальными для умных домов, промышленного IoT и сенсорных сетей.</p>
+                
+                <h3>Медиацентры</h3>
+                <p>Специальные ОС вроде Kodi превращают Raspberry Pi в мощные медиацентры за небольшие деньги.</p>
+                
+                <h3>Робототехника</h3>
+                <p>Микрокомпьютеры управляют роботами от простых учебных моделей до сложных промышленных прототипов.</p>
+                
+                <h3>Серверы</h3>
+                <p>Кластеры из микрокомпьютеров используются для обучения распределенным системам и как бюджетные серверы.</p>
+            </section>
+            
+            <section id="future" class="card">
+                <h2>Перспективы развития</h2>
+                <p>Аналитики прогнозируют следующие тенденции в развитии микрокомпьютеров:</p>
+                
+                <ul>
+                    <li><strong>Увеличение производительности:</strong> Новые модели будут приближаться по мощности к бюджетным ПК</li>
+                    <li><strong>Интеграция ИИ:</strong> Встроенные нейропроцессоры для машинного обучения на устройстве</li>
+                    <li><strong>5G и IoT:</strong> Поддержка новых стандартов связи для интернета вещей</li>
+                    <li><strong>Энергоэффективность:</strong> Дальнейшее снижение энергопотребления</li>
+                    <li><strong>Образование:</strong> Расширение использования в школах и университетах по всему миру</li>
+                </ul>
+                
+                <p>По данным Raspberry Pi Foundation, к 2025 году более 50% школ в развитых странах будут использовать микрокомпьютеры в образовательном процессе.</p>
+            </section>
+            
+            <section class="card">
+                <h2>Где узнать больше?</h2>
+                <p>Официальные ресурсы и сообщества:</p>
+                <ul>
+                    <li><a href="https://www.raspberrypi.org/" target="_blank" rel="noopener noreferrer">Официальный сайт Raspberry Pi</a></li>
+                    <li><a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer">Официальный сайт Arduino</a></li>
+                    <li><a href="https://developer.nvidia.com/embedded/jetson-modules" target="_blank" rel="noopener noreferrer">NVIDIA Jetson для разработчиков</a></li>
+                    <li><a href="https://www.reddit.com/r/raspberry_pi/" target="_blank" rel="noopener noreferrer">Сообщество Raspberry Pi на Reddit</a></li>
+                    <li><a href="https://habr.com/ru/hub/raspberry_pi/" target="_blank" rel="noopener noreferrer">Статьи о Raspberry Pi на Хабре</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>Образовательный ресурс о микрокомпьютерах</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Наверх</a>
+                <a href="#definition" class="footer-link">О проекте</a>
+                <a href="mailto:info@microcomputers-edu.org" class="footer-link">Контакты</a>
+            </div>
+            <p class="last-updated">Последнее обновление: июнь 2023</p>
+            <p><small>Все торговые марки принадлежат их владельцам. Информация предоставлена в образовательных целях.</small></p>
+        </div>
+    </footer>
+    
+    <script>
+        // Простая аналитика посещений
+        if (typeof localStorage !== 'undefined') {
+            let visitCount = localStorage.getItem('visitCount') || 0;
+            visitCount++;
+            localStorage.setItem('visitCount', visitCount);
+            console.log(`Вы посетили этот сайт ${visitCount} раз(а)`);
+        }
+        
+        // Проверка поддержки сервис-воркеров
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').then(registration => {
+                    console.log('ServiceWorker registration successful');
+                }).catch(err => {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+        
+        // Улучшение доступности для клавиатурной навигации
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+    </script>
+</body>
+</html>
